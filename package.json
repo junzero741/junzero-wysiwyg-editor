@@ -1,0 +1,41 @@
+{
+  "name": "junzero-wysiwyg-editor",
+  "version": "0.0.2",
+  "description": "A simple WYSIWYG editor built with ProseMirror and React.",
+  "author": "Jung Junyoung <junzero741@gmail.com>",
+  "main": "dist/wysiwyg-editor-library.umd.js",
+  "module": "dist/wysiwyg-editor-library.es.js",
+  "types": "dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/junzero741/junzero-wysiwyg-editor.git"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "prepublishOnly": "npm run build"
+  },
+  "devDependencies": {
+    "@types/react": "^19.1.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "typescript": "^5.2.2",
+    "vite": "^5.1.4"
+  },
+  "dependencies": {
+    "prosemirror-model": "^1.15.0",
+    "prosemirror-schema-basic": "^1.2.2",
+    "prosemirror-state": "^1.4.3",
+    "prosemirror-view": "^1.33.1",
+    "vite-plugin-dts": "^4.5.3"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  }
+}
