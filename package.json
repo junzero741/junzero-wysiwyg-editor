@@ -25,14 +25,14 @@
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "typescript": "^5.2.2",
-    "vite": "^5.1.4"
+    "vite": "^5.1.4",
+    "vite-plugin-dts": "^4.5.3"
   },
   "dependencies": {
     "prosemirror-model": "^1.15.0",
     "prosemirror-schema-basic": "^1.2.2",
     "prosemirror-state": "^1.4.3",
-    "prosemirror-view": "^1.33.1",
-    "vite-plugin-dts": "^4.5.3"
+    "prosemirror-view": "^1.33.1"
   },
   "peerDependencies": {
     "react": "^18.0.0",
