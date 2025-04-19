@@ -1,4 +1,4 @@
-import { EditorState, Transaction } from 'prosemirror-state';
+import { EditorState, Transaction, TextSelection } from 'prosemirror-state';
 import { EditorView } from 'prosemirror-view';
 import { Schema } from 'prosemirror-model';
 
@@ -32,6 +32,14 @@ export class Editor {
       doc: newDoc,
     });
     this.editorView.updateState(newState);
+
+    // 새로운 문서의 끝으로 커서를 이동
+    const transaction = this.editorView.state.tr.setSelection(
+      TextSelection.atEnd(newState.doc)
+    );
+
+    this.editorView.dispatch(transaction);
+    
   }
 
   private dispatchTransaction(transaction: Transaction) {
