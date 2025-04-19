@@ -10,19 +10,23 @@ interface EditorComponentProps {
   onChange?: (content: string) => void;
 }
 
-const EditorComponent: React.FC<EditorComponentProps> = ({ content, onChange }) => {
+const EditorComponent = ({ content, onChange }: EditorComponentProps) => {
   const editorRef = useRef<HTMLDivElement | null>(null);
   const editorInstance = useRef<Editor | null>(null);
 
   useEffect(() => {
-    if (editorRef.current) {
+    if (editorRef.current && !editorInstance.current) {
+      // 에디터를 처음 한 번만 생성
       editorInstance.current = new Editor(editorRef.current, schema, content, onChange);
     }
+  }, [onChange]); // onChange가 변경될 때만 새로 설정
 
-    return () => {
-      editorInstance.current?.destroy();
-    };
-  }, [content, onChange]);
+  useEffect(() => {
+    if (editorInstance.current) {
+      // content가 변경될 때 기존 에디터의 상태만 업데이트
+      editorInstance.current.setContent(content);
+    }
+  }, [content]);
 
   return <div ref={editorRef} className="editor" />;
 };

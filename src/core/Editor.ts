@@ -25,6 +25,15 @@ export class Editor {
     });
   }
 
+  public setContent(content: string) {
+    const newDoc = this.editorView.state.schema.nodeFromJSON(JSON.parse(content));
+    const newState = EditorState.create({
+      schema: this.editorView.state.schema,
+      doc: newDoc,
+    });
+    this.editorView.updateState(newState);
+  }
+
   private dispatchTransaction(transaction: Transaction) {
     const newState = this.editorView.state.apply(transaction);
     this.editorView.updateState(newState);
